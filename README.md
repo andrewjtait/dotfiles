@@ -1,9 +1,4 @@
-dotfiles
-========
-
-My dotfiles
-
-installation
+Installation
 ============
 
 Run ```sh install.sh```
