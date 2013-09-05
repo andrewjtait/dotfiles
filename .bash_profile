@@ -54,3 +54,7 @@ export no_proxy=127.0.0.1
 
 # turn on garbage collection
 export DGC=true
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
