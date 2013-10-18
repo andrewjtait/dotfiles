@@ -23,9 +23,6 @@ alias be="bundle exec "
 # Evergreen
 alias evergreen="be rails s -p 4000"
 
-# Chrome debugging
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
-
 # Bash prompt
 
 function parse_git_dirty {
