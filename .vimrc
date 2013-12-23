@@ -140,3 +140,4 @@ au BufNewFile,BufRead *.ctp set filetype=html
 au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead Rakefile set filetype=ruby
 au BufNewFile,BufRead Fudgefile set filetype=ruby
+au BufRead,BufNewFile *.md set filetype=markdown
