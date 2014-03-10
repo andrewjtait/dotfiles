@@ -78,6 +78,9 @@ export DGC=true
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# android
+export PATH=${PATH}:~/developments/android-sdk-macosx/platform-tools:~/developments/android-sdk-macosx/tools
+
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
