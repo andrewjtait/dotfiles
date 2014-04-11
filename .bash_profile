@@ -84,3 +84,7 @@ export PATH=${PATH}:~/developments/android-sdk-macosx/platform-tools:~/developme
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
+
+# make ruby faster
+export RUBY_GC_MALLOC_LIMIT=60000000
+export RUBY_FREE_MIN=200000
