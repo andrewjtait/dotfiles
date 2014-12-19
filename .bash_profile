@@ -23,17 +23,35 @@ alias be="bundle exec "
 # Evergreen
 alias evergreen="be rails s -p 4000"
 
+function github {
+  branch="$(git rev-parse --abbrev-ref HEAD)"
+  url="$(git config --get remote.origin.url)"
+  url=${url/git@github.com:/http://github.com/}
+  url=${url/.git/}
+
+  if [[ $1 =~ "compare" ]]; then action="compare"
+  elif [[ $1 =~ "pr" ]]; then action="pull"
+  else action="tree"; fi
+
+  if [[ $2 != "" ]]; then base="$2..."
+  else base=""; fi
+
+  url="${url}/${action}/${base}${branch}"
+
+  echo "Opening ${url} $(\open ${url})"
+}
+
 # Bash prompt
 function parse_git_branch {
   git rev-parse --git-dir &> /dev/null
   git_status="$(git status 2> /dev/null)"
-  branch_pattern="^# On branch ([^${IFS}]*)"
-  ahead_pattern="# Your branch is ahead of"
-  behind_pattern="# Your branch is behind"
-  staged_pattern="# Changes to be committed"
-  unstaged_pattern="# Changes not staged for commit"
-  untracked_pattern="# Untracked files"
-  diverge_pattern="# Your branch and (.*) have diverged"
+  branch_pattern="^On branch ([^${IFS}]*)"
+  ahead_pattern="Your branch is ahead of"
+  behind_pattern="Your branch is behind"
+  staged_pattern="Changes to be committed"
+  unstaged_pattern="Changes not staged for commit"
+  untracked_pattern="Untracked files"
+  diverge_pattern="Your branch and (.*) have diverged"
 
   if [[ ${git_status}} =~ ${staged_pattern} ]];     then state+="${YELLOW}*"; fi
   if [[ ${git_status}} =~ ${unstaged_pattern} ]];   then state+="${GREEN}*"; fi
