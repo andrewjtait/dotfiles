@@ -102,6 +102,8 @@ map <leader>tm :tabmove
 " map <leader>p :set invpaste paste?<CR>
 nmap <leader>pp :setlocal paste!<CR> :echo "Paste Mode ="&paste<CR>
 
+map <leader>f :CtrlP<cr>
+
 set wildmode=longest,list
 set wildmenu "enable bash <tab><tab> to list dir
 
