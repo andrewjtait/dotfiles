@@ -33,6 +33,8 @@ let NERDTreeShowHidden=1
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 
+let g:vroom_spec_command = 'bundle exec rspec '
+
 set mouse=a                       " Enable Mouse
 
 set showcmd                       " Display incomplete commands.
