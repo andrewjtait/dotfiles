@@ -1,5 +1,3 @@
-# Bash Aliases File
-
 # Navigation
 alias ll="ls -l"
 alias lla="ls -la"
@@ -22,24 +20,6 @@ alias be="bundle exec "
 
 # Evergreen
 alias evergreen="be rails s -p 4000"
-
-function github {
-  branch="$(git rev-parse --abbrev-ref HEAD)"
-  url="$(git config --get remote.origin.url)"
-  url=${url/git@github.com:/http://github.com/}
-  url=${url/.git/}
-
-  if [[ $1 =~ "compare" ]]; then action="compare"
-  elif [[ $1 =~ "pr" ]]; then action="pull"
-  else action="tree"; fi
-
-  if [[ $2 != "" ]]; then base="$2..."
-  else base=""; fi
-
-  url="${url}/${action}/${base}${branch}"
-
-  echo "Opening ${url} $(\open ${url})"
-}
 
 # Bash prompt
 function parse_git_branch {
@@ -105,3 +85,8 @@ fi
 # make ruby faster
 export RUBY_GC_MALLOC_LIMIT=60000000
 export RUBY_GC_HEAP_FREE_SLOTS=200000
+
+# docker
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
