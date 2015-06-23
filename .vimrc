@@ -1,11 +1,28 @@
-" Example Vim configuration.
 set nocompatible                  " Must come first because it changes other options.
+filetype off                      " required
 
-"Pathogen Bundles
-silent! call pathogen#runtime_append_all_bundles()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/syntastic'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-powerline'
+
+" All of your Plugins must be added before the following line
+call vundle#end()                 " required
+filetype plugin indent on         " required
 
 syntax enable                     " Turn on syntax highlighting.
-filetype plugin indent on         " Turn on file type detection.
 
 "NERD TREE - show on opening vim automatically
 autocmd vimenter * NERDTree
@@ -15,6 +32,8 @@ let NERDTreeShowHidden=1
 "POWERLINE https://github.com/Lokaltog/vim-powerline
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
+
+let g:vroom_spec_command = 'bundle exec rspec '
 
 set mouse=a                       " Enable Mouse
 
@@ -56,8 +75,8 @@ set ai
 set ts=2
 set softtabstop=2
 
-set showmatch "show matching brackets
-set mat=5 "Bracket blinking
+set showmatch                    " show matching brackets
+set mat=5                        " Bracket blinking
 set list
 
 "Set line endings to show as ¬ instead of $ when viewing in :set list mode
@@ -76,6 +95,7 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 set laststatus=2                  " Show the status line all the time
+
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
@@ -97,25 +117,13 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
-" Paste toggle (,p)
-" set pastetoggle=<leader>p
-" map <leader>p :set invpaste paste?<CR>
-nmap <leader>pp :setlocal paste!<CR> :echo "Paste Mode ="&paste<CR>
-
+" \f to find file
 map <leader>f :CtrlP<cr>
+" \p to paste
+map <leader>p :r!pbpaste<cr>
 
 set wildmode=longest,list
 set wildmenu "enable bash <tab><tab> to list dir
-
-" Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
-
-" Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal foldmethod=syntax
-" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
-
-" For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
-autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 " Use Ack instead of Grep when available
 if executable("ack")
@@ -133,7 +141,6 @@ end
 " CTRL + n = remove blank space at the end of lines
 nnoremap <silent> <C-n> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-"Platform .ui files
 au BufRead,BufNewFile *.ui set filetype=ruby
 au BufRead,BufNewFile *.ru set filetype=ruby
 au BufRead,BufNewFile *.pjax.erb set filetype=html
