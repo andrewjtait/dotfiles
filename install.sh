@@ -1,11 +1,20 @@
-#!/usr/bin/env bash
+#!/bin/sh
+
 cd "$(dirname "${BASH_SOURCE}")"
-git pull origin master
+
 function doIt() {
+  echo "-- Synchronizing files/folders..."
   rsync --exclude ".git/" --exclude ".DS_Store" --exclude "install.sh" \
   --exclude "README.md" -av --no-perms . ~
+  echo "-- Setting up vim plugins..."
+  rm -rf ~/.vim/bundle/Vundle.vim
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  vim +PluginInstall +qall
+  echo "-- Reloading bash profile..."
   source ~/.bash_profile
+  echo "-- All done!"
 }
+
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
   doIt
 else
@@ -15,4 +24,5 @@ else
     doIt
   fi
 fi
+
 unset doIt

@@ -1,8 +1,6 @@
 Installation
 ============
 
-Run ```sh install.sh```
+Update personalised GitHub details in ```.gitconfig```
 
-Update details in ```.gitconfig```
-
-Install vim plugins at ```.vim/bundle/*```
+Run ```./install.sh``` to install.
