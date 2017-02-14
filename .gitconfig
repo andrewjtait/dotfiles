@@ -3,6 +3,8 @@
   email = andrew.tait@sage.com
 [github]
   user = andrewjtait
+[init]
+  templatedir = ~/.git_template
 [color]
   branch = auto
   diff = auto

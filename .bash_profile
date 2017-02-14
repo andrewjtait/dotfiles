@@ -72,6 +72,11 @@ export no_proxy=127.0.0.1
 # turn on garbage collection
 export DGC=true
 
+# default queue provider
+export CACHE_STORE_HOST="redis"
+export MQ_ENDPOINT="rabbitmq"
+export QUEUE_PROVIDER="rabbitmq"
+
 # rbenv
 eval "$(rbenv init -)"
 
@@ -86,11 +91,9 @@ fi
 export RUBY_GC_MALLOC_LIMIT=60000000
 export RUBY_GC_HEAP_FREE_SLOTS=200000
 
-# docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
 # mysql defaults
 export MYSQL_USERNAME='root'
 export MYSQL_PASSWORD='admin'
+
+export NVM_DIR="~/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

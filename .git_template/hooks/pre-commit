@@ -1,0 +1,12 @@
+#!/bin/sh
+#  
+# A hook script to verify that the commit contains no instances of
+# binding.pry or debugger etc
+
+args='(binding.pry|fdescribe|fit(|debugger|<<<<<<<|=======|>>>>>>>)'
+
+git diff --cached --name-only | \
+  GREP_COLOR='4;5;37;41' xargs grep --color --with-filename -n -E $args && \
+  echo 'COMMIT REJECTED' && \
+  exit 1
+exit 0
