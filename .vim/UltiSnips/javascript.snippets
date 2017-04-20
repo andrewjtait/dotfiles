@@ -1,15 +1,33 @@
-snippet des "Describe block" b
+snippet desc "describe block" b
 describe('$1', () => {
   $2
 });
 endsnippet
 
-snippet it "It block" b
+snippet it "it block" b
 it('$1', () => {
   $2
 });
 endsnippet
 
-snippet im "Import block" b
+snippet import "import line" b
 import $1 from '$2';
+endsnippet
+
+snippet before "beforeEach block" b
+beforeEach(() => {
+  $1
+});
+endsnippet
+
+snippet react "react class" b
+import React from 'react';
+
+class $1 extends React.Component {
+  render() {
+    return $2;
+  }
+}
+
+export default $1;
 endsnippet
