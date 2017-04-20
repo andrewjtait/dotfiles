@@ -151,3 +151,8 @@ au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead Rakefile set filetype=ruby
 au BufNewFile,BufRead Fudgefile set filetype=ruby
 au BufRead,BufNewFile *.md set filetype=markdown
+
+" Set ultisnips triggers
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
