@@ -21,6 +21,11 @@ alias be="bundle exec "
 # Evergreen
 alias evergreen="be rails s -p 4000"
 
+# allows local installations of node packages without using symlinks
+function install-local {
+  npm install $(npm pack $1 | tail -1)
+}
+
 # Bash prompt
 function parse_git_branch {
   git rev-parse --git-dir &> /dev/null
