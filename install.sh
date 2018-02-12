@@ -10,6 +10,8 @@ function doIt() {
   rm -rf ~/.vim/bundle/Vundle.vim
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   vim +PluginInstall +qall
+  echo "-- Configuring iterm..."
+  tic -o ~/.terminfo ~/.vim/xterm-256-color-italic.terminfo
   echo "-- Reloading bash profile..."
   source ~/.bash_profile
   echo "-- All done!"

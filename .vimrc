@@ -18,6 +18,13 @@ Plugin 'honza/vim-snippets'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-powerline'
+Plugin 'pangloss/vim-javascript'
+Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'othree/yajs.vim'
+Plugin 'othree/html5.vim'
+Plugin 'mhartington/oceanic-next'
+
+let g:vim_jsx_pretty_colorful_config = 1
 
 " All of your Plugins must be added before the following line
 call vundle#end()                 " required
@@ -29,6 +36,9 @@ syntax enable                     " Turn on syntax highlighting.
 autocmd vimenter * NERDTree
 autocmd vimenter * if !argc() |  NERDTree | endif
 let NERDTreeShowHidden=1
+
+" ignore the following patterns in ctrlp
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage'
 
 "POWERLINE https://github.com/Lokaltog/vim-powerline
 let g:Powerline_symbols = 'fancy'
@@ -105,7 +115,11 @@ set spelllang=en_gb
 
 " color settings
 set t_Co=256
-colorscheme molokai
+syntax on
+colorscheme OceanicNext
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+highlight Comment cterm=italic
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -156,3 +170,5 @@ au BufRead,BufNewFile *.md set filetype=markdown
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
