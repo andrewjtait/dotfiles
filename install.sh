@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 cd "$(dirname "${BASH_SOURCE}")"
 
-function doIt() {
+doIt() {
   echo "-- Synchronizing files/folders..."
   rsync --exclude ".git/" --exclude ".DS_Store" --exclude "install.sh" \
   --exclude "iterm-profile.json" --exclude "README.md" -av --no-perms . ~
