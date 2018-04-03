@@ -40,11 +40,7 @@ let NERDTreeShowHidden=1
 " ignore the following patterns in ctrlp
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage'
 
-"POWERLINE https://github.com/Lokaltog/vim-powerline
-let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
-
-let g:vroom_spec_command = 'bundle exec rspec '
 
 set mouse=a                       " Enable Mouse
 

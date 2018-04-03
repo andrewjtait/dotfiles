@@ -26,6 +26,10 @@ function install-local {
   npm install $(npm pack $1 | tail -1)
 }
 
+function docker-login {
+  $(aws ecr get-login --no-include-email)
+}
+
 # Bash prompt
 function parse_git_branch {
   git rev-parse --git-dir &> /dev/null
@@ -82,23 +86,10 @@ export CACHE_STORE_HOST="redis"
 export MQ_ENDPOINT="rabbitmq"
 export QUEUE_PROVIDER="rabbitmq"
 
-# rbenv
-eval "$(rbenv init -)"
-
-# android
-export PATH=${PATH}:~/developments/android-sdk-macosx/platform-tools:~/developments/android-sdk-macosx/tools
-
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
-
-# make ruby faster
-export RUBY_GC_MALLOC_LIMIT=60000000
-export RUBY_GC_HEAP_FREE_SLOTS=200000
-
 # mysql defaults
 export MYSQL_USERNAME='root'
 export MYSQL_PASSWORD='admin'
 
-export NVM_DIR="~/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
