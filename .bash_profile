@@ -18,9 +18,6 @@ alias go="git checkout "
 alias b="bundle"
 alias be="bundle exec "
 
-# Evergreen
-alias evergreen="be rails s -p 4000"
-
 # allows local installations of node packages without using symlinks
 function install-local {
   npm install $(npm pack $1 | tail -1)
@@ -69,14 +66,11 @@ BLUE="\[\033[0;34m\]"
 GREEN="\[\033[0;32m\]"
 NO_COLOUR="\[\033[0m\]"
 
-# 256 Colour Stuff for Vim/ Tmux
+# 256 Colour Stuff for Vim/Tmux
 export TERM='screen-256color'
 
 #Editor set to vim
 export EDITOR=vim
-
-#Set proxy for selenium webdriver issue
-export no_proxy=127.0.0.1
 
 # turn on garbage collection
 export DGC=true
