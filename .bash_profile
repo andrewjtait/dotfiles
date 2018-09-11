@@ -13,7 +13,7 @@ alias gb="git branch "
 alias gc="git commit "
 alias gd="git diff "
 alias go="git checkout "
-alias gp="git pull origin $(git branch | grep \* | cut -d ' ' -f2)"
+alias gp='git pull origin $(git branch | grep \* | cut -d " " -f2)'
 
 # Bundler
 alias b="bundle"
