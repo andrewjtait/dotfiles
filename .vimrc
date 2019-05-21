@@ -114,8 +114,6 @@ set t_Co=256
 syntax on
 colorscheme OceanicNext
 let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-highlight Comment cterm=italic
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
