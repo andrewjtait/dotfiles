@@ -98,3 +98,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export LOCO2_USER=andrewt
 export PGHOST=localhost
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
