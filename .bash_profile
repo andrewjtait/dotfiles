@@ -3,7 +3,7 @@ alias ll="ls -l"
 alias lla="ls -la"
 alias ..="cd .."
 alias ...="cd ../.."
-alias dev="cd ~/developments"
+alias dev="cd ~/dev"
 
 # Git
 alias g="git"
@@ -19,10 +19,10 @@ alias gp='git pull origin $(git branch | grep \* | cut -d " " -f2)'
 alias b="bundle"
 alias be="bundle exec "
 
-# allows local installations of node packages without using symlinks
-function install-local {
-  npm install $(npm pack $1 | tail -1)
-}
+# Kill localhost
+alias kpuma="kill -9 $(lsof -i tcp:3000 -t)"
+
+alias boot="open ~/dev/loco2-boot/loco2.app"
 
 function docker-login {
   $(aws ecr get-login --no-include-email)
@@ -90,7 +90,11 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 eval "$(rbenv init -)"
+eval "$(direnv hook bash)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export LOCO2_USER=andrewt
+export PGHOST=localhost
