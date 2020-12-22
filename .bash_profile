@@ -6,14 +6,7 @@ alias ...="cd ../.."
 alias dev="cd ~/dev"
 
 # Git
-alias g="git"
 alias gs="git status "
-alias ga="git add "
-alias gb="git branch "
-alias gc="git commit "
-alias gd="git diff "
-alias go="git checkout "
-alias gp='git pull origin $(git branch | grep \* | cut -d " " -f2)'
 
 # Bundler
 alias b="bundle"
@@ -95,8 +88,5 @@ eval "$(direnv hook bash)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export LOCO2_USER=andrewt
-export PGHOST=localhost
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
