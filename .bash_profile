@@ -90,3 +90,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+export GPG_TTY=$(tty)
