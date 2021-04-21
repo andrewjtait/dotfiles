@@ -1,6 +1,7 @@
 [user]
   name = Andrew Tait
   email = ajtait.uk@gmail.com
+  signingkey = ACE683A1CDE999CA
 [github]
   user = andrewjtait
 [init]
@@ -35,3 +36,7 @@
   prompt = false
 [merge]
   tool = Kaleidoscope
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+[commit]
+  gpgsign = true
