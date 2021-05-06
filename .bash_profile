@@ -11,6 +11,7 @@ alias gs="git status "
 # Bundler
 alias b="bundle"
 alias be="bundle exec "
+alias pbe="procodile exec bundle exec "
 
 # Kill localhost
 alias kpuma="kill -9 $(lsof -i tcp:3000 -t)"
@@ -63,7 +64,7 @@ NO_COLOUR="\[\033[0m\]"
 # 256 Colour Stuff for Vim/Tmux
 export TERM='screen-256color'
 
-#Editor set to vim
+# editor set to vim
 export EDITOR=vim
 
 # turn on garbage collection
@@ -90,5 +91,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export PATH=$PATH:/usr/local/sbin
 
 export GPG_TTY=$(tty)
