@@ -7,20 +7,12 @@ alias dev="cd ~/dev"
 
 # Git
 alias gs="git status "
+alias gp='git pull origin $(git branch | grep \* | cut -d " " -f2)'
 
 # Bundler
 alias b="bundle"
 alias be="bundle exec "
 alias pbe="procodile exec bundle exec "
-
-# Kill localhost
-alias kpuma="kill -9 $(lsof -i tcp:3000 -t)"
-
-alias boot="open ~/dev/loco2-boot/loco2.app"
-
-function docker-login {
-  $(aws ecr get-login --no-include-email)
-}
 
 # Bash prompt
 function parse_git_branch {
@@ -93,6 +85,7 @@ export NVM_DIR="$HOME/.nvm"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export PATH="/usr/local/opt/influxdb@1/bin:$PATH"
 export PATH=$PATH:/usr/local/sbin
 
 export GPG_TTY=$(tty)
