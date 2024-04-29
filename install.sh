@@ -5,7 +5,7 @@ cd "$(dirname "${BASH_SOURCE}")"
 doIt() {
   echo "-- Synchronizing files/folders..."
   rsync --exclude ".git/" --exclude ".DS_Store" --exclude "install.sh" \
-  --exclude "README.md" -av --no-perms . ~
+  --exclude "README.md" --exclude "fonts/" --exclude "Brewfile" -av --no-perms . ~
 
   read -p "Do you want to configure vim? (y/n) " -n 1
   echo
@@ -16,8 +16,8 @@ doIt() {
     vim +PluginInstall +qall
   fi
 
-  echo "-- Reloading bash profile..."
-  source ~/.bash_profile
+  echo "-- Reloading zsh..."
+  exec $SHELL -l
 
   echo "-- All done!"
 }
